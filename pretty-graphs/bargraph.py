@@ -1,16 +1,29 @@
-import matplotlib.pyplot as plt
+import matplotlib.pylab as plt
+import numpy as np
 
 dates = []
 registration = []
+counterarray = []
 
-f = open('sample-bar.txt', 'r')
+counter = 0;
+f = open("sample-bar.txt", 'r')
 for row in f:
+    counterarray.append(counter)
     row = row.split(' ')
     dates.append(row[0])
-    registration.append(str (row[1]))
+    registration.append(row[1])
+    counter+=1
+print(counterarray)
+plt.bar(counterarray, registration, align='center')
 
-plt.bar(dates, registration)
-plt.title('Bar Graph')
-plt.xlabel('X')
-plt.ylabel('Y')
+plt.xticks(counterarray, dates)
+#plt.bar(dates, registration, color = 'g', label = 'data')
 plt.show()
+
+#different functions
+#with open
+
+
+
+
+
